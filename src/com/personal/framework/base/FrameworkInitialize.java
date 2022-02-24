@@ -1,4 +1,4 @@
-package main.java.com.personal.base;
+package com.personal.framework.base;
 
 public class FrameworkInitialize {
 }
