@@ -1,8 +1,8 @@
 package com.personal.test.Features.SeleniumTest;
 
+import com.personal.test.Features.Pages.LoginPage;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -20,8 +20,7 @@ public class LoginTest {
 
     @Test
     public void Login() {
-        _driver.findElement(By.name("UserName")).sendKeys("admin");
-        _driver.findElement(By.name("Password")).sendKeys("admin");
-        _driver.findElement(By.name("Login")).submit();
+        LoginPage loginPage = new LoginPage(_driver);
+        loginPage.Login("admin", "admin");
     }
 }
