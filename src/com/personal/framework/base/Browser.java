@@ -18,5 +18,9 @@ public class Browser {
     public void Maximize() {
         _driver.manage().window().maximize();
     }
+
+    public void Close() {
+        _driver.quit();
+    }
 }
 
