@@ -1,6 +1,7 @@
-package com.personal.test.Features.SeleniumTest;
+package com.personal.test.Features.seleniumTest;
 
-import com.personal.test.Features.Pages.LoginPage;
+import com.personal.test.Features.pages.HomePage;
+import com.personal.test.Features.pages.LoginPage;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -14,13 +15,15 @@ public class LoginTest {
     public void initialize() {
         System.setProperty("webdriver.gecko.driver", "D:\\Libs\\geckodriver.exe");
         _driver = new FirefoxDriver();
-        _driver.get("https://demosite.executeautomation.com/");
+        _driver.get("http://eaapp.somee.com/");
 
     }
 
     @Test
     public void Login() {
+        HomePage homePage = new HomePage(_driver);
+        homePage.clickLogin();
         LoginPage loginPage = new LoginPage(_driver);
-        loginPage.Login("admin", "admin");
+        loginPage.Login("admin", "password");
     }
 }
