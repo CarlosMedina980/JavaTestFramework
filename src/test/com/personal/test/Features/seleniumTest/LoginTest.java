@@ -20,8 +20,7 @@ public class LoginTest {
     @Test
     public void Login() {
         HomePage homePage = new HomePage();
-        homePage.clickLogin();
-        LoginPage loginPage = new LoginPage();
+        LoginPage loginPage = homePage.clickLogin();
         loginPage.Login("admin", "password");
     }
 }
