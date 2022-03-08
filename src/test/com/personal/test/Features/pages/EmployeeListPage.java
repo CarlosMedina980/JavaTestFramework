@@ -9,7 +9,7 @@ import org.openqa.selenium.support.How;
 public class EmployeeListPage extends BasePage {
 
     public EmployeeListPage(WebDriver driver) {
-        super(driver);
+        
     }
 
     @FindBy(how = How.XPATH, using = "//a[text() = 'Create New']")
