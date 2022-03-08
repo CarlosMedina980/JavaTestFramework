@@ -1,4 +1,4 @@
-package com.personal.test.Features.Pages;
+package com.personal.test.Features.pages;
 
 import com.personal.framework.base.BasePage;
 import org.openqa.selenium.WebDriver;
@@ -12,13 +12,13 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(how = How.NAME, using = "UserName")
+    @FindBy(how = How.ID, using = "UserName")
     public WebElement txtUserName;
 
-    @FindBy(how = How.NAME, using = "Password")
+    @FindBy(how = How.ID, using = "Password")
     public WebElement txtPassword;
 
-    @FindBy(how = How.NAME, using = "Login")
+    @FindBy(how = How.CSS, using = "[Class='btn btn-default']")
     public WebElement btnLogin;
 
     public void Login(String user, String password) {
