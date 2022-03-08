@@ -1,12 +1,14 @@
 package com.personal.framework.base;
 
-import org.openqa.selenium.support.PageFactory;
+public class BasePage extends Base {
 
-public class BasePage {
+    public <TPage extends BasePage> TPage AS(Class<TPage> pageInstance) {
+        try {
+            return (TPage) this;
 
-    public BasePage() {
-        {
-            PageFactory.initElements(DriverContext.Driver, this);
+        } catch (Exception e) {
+            e.getStackTrace();
         }
+        return null;
     }
 }

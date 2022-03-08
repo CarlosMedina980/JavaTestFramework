@@ -7,10 +7,6 @@ import org.openqa.selenium.support.How;
 
 public class HomePage extends BasePage {
 
-    public HomePage() {
-
-    }
-
     @FindBy(how = How.ID, using = "loginLink")
     public WebElement btnLogin;
 
@@ -19,12 +15,12 @@ public class HomePage extends BasePage {
 
     public LoginPage clickLogin() {
         btnLogin.click();
-        return new LoginPage();
+        return getInstance(LoginPage.class);
     }
 
     public EmployeeListPage clickEmployeeList() {
         btnEmployeeList.click();
-        return new EmployeeListPage();
+        return getInstance(EmployeeListPage.class);
     }
 }
 
