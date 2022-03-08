@@ -1,5 +1,6 @@
 package com.personal.test.Features.seleniumTest;
 
+import com.personal.framework.base.Base;
 import com.personal.framework.base.DriverContext;
 import com.personal.test.Features.pages.HomePage;
 import com.personal.test.Features.pages.LoginPage;
@@ -7,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class LoginTest {
+public class LoginTest extends Base {
 
     @Before
     public void initialize() {
@@ -19,8 +20,8 @@ public class LoginTest {
 
     @Test
     public void Login() {
-        HomePage homePage = new HomePage();
-        LoginPage loginPage = homePage.clickLogin();
-        loginPage.Login("admin", "password");
+        CurrentPage = getInstance(HomePage.class);
+        CurrentPage = CurrentPage.AS(HomePage.class).clickLogin();
+        CurrentPage.AS(LoginPage.class).Login("admin", "password");
     }
 }

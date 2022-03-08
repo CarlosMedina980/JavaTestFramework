@@ -7,10 +7,6 @@ import org.openqa.selenium.support.How;
 
 public class EmployeeListPage extends BasePage {
 
-    public EmployeeListPage() {
-
-    }
-
     @FindBy(how = How.XPATH, using = "//a[text() = 'Create New']")
     public WebElement btnCreateNew;
 }
