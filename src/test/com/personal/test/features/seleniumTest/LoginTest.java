@@ -4,8 +4,9 @@ import com.personal.framework.base.BrowserTypes;
 import com.personal.framework.base.DriverContext;
 import com.personal.framework.base.FrameworkInitialize;
 import com.personal.framework.utilities.ExcelUtil;
-import com.personal.test.features.pages.HomePage;
-import com.personal.test.features.pages.LoginPage;
+import com.personal.framework.utilities.LogUtil;
+import com.personal.test.features.seleniumTest.pages.HomePage;
+import com.personal.test.features.seleniumTest.pages.LoginPage;
 import jxl.read.biff.BiffException;
 import org.junit.After;
 import org.junit.Before;
@@ -17,9 +18,14 @@ public class LoginTest extends FrameworkInitialize {
 
     @Before
     public void initialize() {
+        LogUtil logUtil = new LogUtil();
+        logUtil.CreateLogFile();
+        logUtil.Write("Framework Initialize");
+
         InitializeBrowser(BrowserTypes.Firefox);
         DriverContext.Browser.GoToUrl("http://eaapp.somee.com");
         DriverContext.Browser.Maximize();
+
         try {
             ExcelUtil excelUtil = new ExcelUtil("D:\\JavaTestFramework\\JavaTestFramework\\logintestdata.xls");
         } catch (BiffException e) {

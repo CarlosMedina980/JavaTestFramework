@@ -1,4 +1,4 @@
-package com.personal.test.features.pages;
+package com.personal.test.features.seleniumTest.pages;
 
 import com.personal.framework.base.BasePage;
 import org.openqa.selenium.WebElement;
