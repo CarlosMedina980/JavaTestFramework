@@ -21,8 +21,9 @@ public class HomePage extends BasePage {
         return getInstance(LoginPage.class);
     }
 
-    public EmployeeListPage clickEmployeeList() {
+    public EmployeeListPage clickEmployeeList() throws InterruptedException {
         btnEmployeeList.click();
+        Thread.sleep(2000);
         return getInstance(EmployeeListPage.class);
     }
 

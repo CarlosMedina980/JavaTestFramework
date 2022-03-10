@@ -22,8 +22,9 @@ public class LoginPage extends BasePage {
 
     }
 
-    public HomePage ClickLogin() {
+    public HomePage ClickLogin() throws InterruptedException {
         btnLogin.submit();
+        Thread.sleep(2000);
         return getInstance(HomePage.class);
     }
 }
