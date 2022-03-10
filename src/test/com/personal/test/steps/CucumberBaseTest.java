@@ -1,4 +1,4 @@
-package com.personal.test.seleniumTest;
+package com.personal.test.steps;
 
 import com.personal.framework.base.DriverContext;
 import com.personal.framework.base.FrameworkInitialize;
