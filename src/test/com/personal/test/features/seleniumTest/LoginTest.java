@@ -1,9 +1,9 @@
 package com.personal.test.features.seleniumTest;
 
-import com.personal.framework.base.BrowserTypes;
 import com.personal.framework.base.DriverContext;
 import com.personal.framework.base.FrameworkInitialize;
-import com.personal.framework.utilities.DatabaseUtil;
+import com.personal.framework.config.ConfigReader;
+import com.personal.framework.config.Settings;
 import com.personal.framework.utilities.ExcelUtil;
 import com.personal.framework.utilities.LogUtil;
 import com.personal.test.features.seleniumTest.pages.HomePage;
@@ -14,29 +14,28 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.sql.Connection;
 
 public class LoginTest extends FrameworkInitialize {
 
     @Before
-    public void initialize() {
+    public void initialize() throws IOException {
 
-        String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=EmployeeDB;encrypt=true;trustServerCertificate=true;user=sa;password=abc123";
-        Connection conn = DatabaseUtil.Open(connectionUrl);
+        ConfigReader.PopulateSettings();
 
-        DatabaseUtil.ExecuteQuery("SELECT * From Employees", conn);
+        //Connection conn = DatabaseUtil.Open(Settings.AUTConnectionString);
+        //DatabaseUtil.ExecuteQuery("SELECT * From Employees", conn);
 
-        
+
         LogUtil logUtil = new LogUtil();
         logUtil.CreateLogFile();
         logUtil.Write("Framework Initialize");
 
-        InitializeBrowser(BrowserTypes.Firefox);
-        DriverContext.Browser.GoToUrl("http://eaapp.somee.com");
+        InitializeBrowser(Settings.Browser);
+        DriverContext.Browser.GoToUrl(Settings.AUT);
         DriverContext.Browser.Maximize();
 
         try {
-            ExcelUtil excelUtil = new ExcelUtil("D:\\JavaTestFramework\\JavaTestFramework\\logintestdata.xls");
+            ExcelUtil excelUtil = new ExcelUtil(Settings.ExcelSheetPath);
         } catch (BiffException e) {
             e.printStackTrace();
         } catch (IOException e) {

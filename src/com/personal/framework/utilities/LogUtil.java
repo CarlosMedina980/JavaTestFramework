@@ -1,5 +1,7 @@
 package com.personal.framework.utilities;
 
+import com.personal.framework.config.Settings;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -19,7 +21,7 @@ public class LogUtil {
     public void CreateLogFile() {
 
         try {
-            File dir = new File("D:\\JavaTestFramework\\JavaTestFramework\\Logs");
+            File dir = new File(Settings.LogPath);
             if (!dir.exists())
                 dir.mkdir();
             File logFile = new File(dir + "/" + fileNameFormat + ".log");
@@ -34,7 +36,7 @@ public class LogUtil {
     //Write some message on the log file
     public void Write(String message) {
         try {
-            bufferedWriter.write(message);
+            bufferedWriter.append(message);
             bufferedWriter.close();
         } catch (Exception e) {
 
