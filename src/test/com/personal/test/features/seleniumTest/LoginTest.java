@@ -3,6 +3,7 @@ package com.personal.test.features.seleniumTest;
 import com.personal.framework.base.BrowserTypes;
 import com.personal.framework.base.DriverContext;
 import com.personal.framework.base.FrameworkInitialize;
+import com.personal.framework.utilities.DatabaseUtil;
 import com.personal.framework.utilities.ExcelUtil;
 import com.personal.framework.utilities.LogUtil;
 import com.personal.test.features.seleniumTest.pages.HomePage;
@@ -13,11 +14,19 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 public class LoginTest extends FrameworkInitialize {
 
     @Before
     public void initialize() {
+
+        String connectionUrl = "jdbc:sqlserver://localhost:1433;databaseName=EmployeeDB;encrypt=true;trustServerCertificate=true;user=sa;password=abc123";
+        Connection conn = DatabaseUtil.Open(connectionUrl);
+
+        DatabaseUtil.ExecuteQuery("SELECT * From Employees", conn);
+
+        
         LogUtil logUtil = new LogUtil();
         logUtil.CreateLogFile();
         logUtil.Write("Framework Initialize");

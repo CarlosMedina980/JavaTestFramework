@@ -7,20 +7,21 @@ import java.sql.Statement;
 
 public class DatabaseUtil {
 
-    public void Open(String connectionString) {
+    public static Connection Open(String connectionString) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            DriverManager.getConnection(connectionString);
+            return DriverManager.getConnection(connectionString);
         } catch (Exception e) {
-            e.printStackTrace();
+
         }
+        return null;
     }
 
-    public void Close() {
+    public static void Close() {
 
     }
 
-    public void ExecuteQuery(String query, Connection connection) {
+    public static void ExecuteQuery(String query, Connection connection) {
         Statement statement = null;
         try {
             statement = connection.createStatement();
