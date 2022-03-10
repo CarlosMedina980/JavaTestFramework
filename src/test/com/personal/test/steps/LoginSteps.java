@@ -32,7 +32,7 @@ public class LoginSteps extends Base {
     }
 
     @When("I click Login button")
-    public void iClickLoginButton() {
+    public void iClickLoginButton() throws InterruptedException {
         CurrentPage = CurrentPage.AS(LoginPage.class).ClickLogin();
     }
 

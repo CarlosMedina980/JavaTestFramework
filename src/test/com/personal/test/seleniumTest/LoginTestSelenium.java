@@ -10,7 +10,7 @@ public class LoginTestSelenium extends SeleniumBaseTest {
 
 
     @Test
-    public void Login() {
+    public void Login() throws InterruptedException {
         CurrentPage = getInstance(HomePage.class);
         CurrentPage = CurrentPage.AS(HomePage.class).clickLogin();
         CurrentPage.AS(LoginPage.class).FillLoginData(ExcelUtil.ReadCell("UserName", 1), ExcelUtil.ReadCell("Password", 1));
