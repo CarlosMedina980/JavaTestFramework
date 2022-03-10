@@ -1,6 +1,7 @@
 package com.personal.framework.config;
 
 import com.personal.framework.base.BrowserTypes;
+import com.personal.framework.utilities.LogUtil;
 
 import java.sql.Connection;
 
@@ -18,5 +19,5 @@ public class Settings {
 
     public static String AUT;
     public static BrowserTypes Browser;
-
+    public static LogUtil Logs;
 }

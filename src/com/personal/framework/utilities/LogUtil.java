@@ -36,8 +36,11 @@ public class LogUtil {
     //Write some message on the log file
     public void Write(String message) {
         try {
-            bufferedWriter.append(message);
-            bufferedWriter.close();
+            formatter = DateTimeFormatter.ofPattern("dd-MM-YYYY:HH_MM_SS");
+            String dateFormat = date.format(formatter);
+            bufferedWriter.write("[" + dateFormat + "] " + message);
+            bufferedWriter.newLine();
+            bufferedWriter.flush();
         } catch (Exception e) {
 
         }
