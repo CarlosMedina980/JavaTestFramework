@@ -1,36 +1,37 @@
 package com.personal.test.pages;
 
 import com.personal.framework.base.BasePage;
-import org.openqa.selenium.WebElement;
+import com.personal.framework.controls.elements.Button;
+import com.personal.framework.controls.elements.TextBox;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class CreateEmployeePage extends BasePage {
 
     @FindBy(how = How.ID, using = "Name")
-    public WebElement nameInput;
+    public TextBox nameInput;
 
     @FindBy(how = How.ID, using = "Salary")
-    public WebElement salaryInput;
+    public TextBox salaryInput;
 
     @FindBy(how = How.ID, using = "DurationWorked")
-    public WebElement durationWorkedInput;
+    public TextBox durationWorkedInput;
 
     @FindBy(how = How.ID, using = "Grade")
-    public WebElement gradeInput;
+    public TextBox gradeInput;
 
     @FindBy(how = How.ID, using = "Email")
-    public WebElement emailInput;
+    public TextBox emailInput;
 
     @FindBy(how = How.CSS, using = ".btn-default")
-    public WebElement createButton;
+    public Button createButton;
 
     public void CreateEmployee(String name, String salary, String durationWorked, String grade, String email) {
-        nameInput.sendKeys(name);
-        salaryInput.sendKeys(salary);
-        durationWorkedInput.sendKeys(durationWorked);
-        gradeInput.sendKeys(grade);
-        emailInput.sendKeys(email);
+        nameInput.enterText(name);
+        salaryInput.enterText(salary);
+        durationWorkedInput.enterText(durationWorked);
+        gradeInput.enterText(grade);
+        emailInput.enterText(email);
     }
 
     public void ClickCreateNewButton() {

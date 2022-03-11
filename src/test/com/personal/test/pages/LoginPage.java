@@ -1,29 +1,30 @@
 package com.personal.test.pages;
 
 import com.personal.framework.base.BasePage;
-import org.openqa.selenium.WebElement;
+import com.personal.framework.controls.elements.Button;
+import com.personal.framework.controls.elements.TextBox;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class LoginPage extends BasePage {
 
     @FindBy(how = How.ID, using = "UserName")
-    public WebElement txtUserName;
+    public TextBox txtUserName;
 
     @FindBy(how = How.ID, using = "Password")
-    public WebElement txtPassword;
+    public TextBox txtPassword;
 
     @FindBy(how = How.CSS, using = "[Class='btn btn-default']")
-    public WebElement btnLogin;
+    public Button btnLogin;
 
     public void FillLoginData(String user, String password) {
-        txtUserName.sendKeys(user);
-        txtPassword.sendKeys(password);
+        txtUserName.enterText(user);
+        txtPassword.enterText(password);
 
     }
 
     public HomePage ClickLogin() throws InterruptedException {
-        btnLogin.submit();
+        btnLogin.PerformClick();
         Thread.sleep(2000);
         return getInstance(HomePage.class);
     }
