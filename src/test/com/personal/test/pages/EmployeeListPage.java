@@ -1,17 +1,17 @@
 package com.personal.test.pages;
 
 import com.personal.framework.base.BasePage;
-import org.openqa.selenium.WebElement;
+import com.personal.framework.controls.elements.Button;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class EmployeeListPage extends BasePage {
 
     @FindBy(how = How.LINK_TEXT, using = "Create New")
-    public WebElement btnCreateNew;
+    public Button btnCreateNew;
 
     public CreateEmployeePage ClickCreateNewButton() {
-        btnCreateNew.click();
+        btnCreateNew.PerformClick();
         return getInstance(CreateEmployeePage.class);
     }
 }
